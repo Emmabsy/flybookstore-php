@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if((!isset($_SESSION['manager'])  && !isset($_SESSION['expert']))){
+	if((!isset($_SESSION['manager'])  && !isset($_SESSION['admini']))){
 		header("Location:index.php");
 	}
 	$title = "List book";
@@ -13,10 +13,13 @@
 	<a href="admin_signout.php" class="btn btn-danger"><span class="glyphicon glyphicon-off"></span>&nbsp;Logout</a>
 	<a href="admin_publishers.php" class="btn btn-primary"><span class="glyphicon glyphicon-paperclip"></span>&nbsp;Publishers</a>
 	<a href="admin_categories.php" class="btn btn-primary"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Categories</a>
+
+	<a class="btn btn-primary" href="admin_add.php"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Book</a>
+	
 	<?php
-	if (isset($_SESSION['manager']) && $_SESSION['manager']==true){
-		echo '<a class="btn btn-primary" href="admin_add.php"><span class="glyphicon glyphicon-plus"></span>&nbsp;Add Book</a>';
-	}
+	/*if (isset($_SESSION['manager']) && $_SESSION['manager']==true){
+		echo '<a class="btn btn-primary" href="admin_add.php"> <span class="glyphicon glyphicon-plus"></span>&nbsp;Add Book</a>';
+	}*/
 	?>
 	</div>
 	
@@ -43,8 +46,13 @@
 			<td><?php echo $row['book_price']; ?></td>
 			<td><?php echo getPubName($conn, $row['publisherid']); ?></td>
 			<td><?php echo getCatName($conn, $row['categoryid']); ?></td>
+
+
+			<td> <a style="color: orange" href="admin_edit.php?bookisbn=<?php echo $row['book_isbn']; ?>">Edit</a></td>
+			<td> <a style="color: red" href="admin_delete.php?bookisbn=<?php echo $row['book_isbn']; ?>">Delete</a></td>
+
 			<?php
-				if( isset($_SESSION['expert']) && $_SESSION['expert']==true){
+				/*if( isset($_SESSION['expert']) && $_SESSION['expert']==true){
 					echo '<td><a href="admin_edit.php?bookisbn=';
 					echo $row['book_isbn'];
 					echo'"><span class="glyphicon glyphicon-pencil"></span>Edit</a></td>';
@@ -53,6 +61,7 @@
 					echo $row['book_isbn']; 
 					echo '"><span class="glyphicon glyphicon-trash"></span>Delete</a></td>';
 				}
+				*/
 			?>
 
 		</tr>

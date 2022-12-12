@@ -63,7 +63,9 @@
               
 
               <li ><a style="color:#ffffff; background-color:transparent;font-weight:600 " href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp; Cart</a></li>
-              <li> <a style="color:#ffffff; background-color:transparent; font-weight:600 " href="contact.php"><span class="fa fa-book" aria-hidden="true"></span>&nbsp; Contact Us</a></li>
+              <!--<li> <a style="color:#ffffff; background-color:transparent; font-weight:600 " href="contact.php"><span class="fa fa-book" aria-hidden="true"></span>&nbsp; Contact Us</a></li>
+
+  -->
 
 
 

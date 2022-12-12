@@ -9,30 +9,39 @@
 
 	if(empty($name) || empty($pass)){
 		header("Location:signin.php?signin=empty");
+	
 	}
+	
     else{
 				$query = "SELECT name,pass from manager";
 				$result = mysqli_query($conn, $query);
 				$row = mysqli_fetch_assoc($result);
 				 if($name == $row['name'] && $pass == $row['pass'] ){
 					$_SESSION['manager'] = true;
-					unset($_SESSION['expert']);
+					unset($_SESSION['admini']);
 					unset($_SESSION['user']);
 					unset($_SESSION['email']);
 					header("Location: admin_book.php");
 				}
 				else{
-					//check if it is expert
-					$query = "SELECT name,pass from expert";
+					//check if it is
+					$query = "SELECT name,pass from admini";
 					$result = mysqli_query($conn, $query);
 					$row = mysqli_fetch_assoc($result);
+
+					/*if($name != $row['name'] && $pass != $row['pass']){
+						header("Location:signin.php?signin=empty");
+						$_SESSION['expert'] = false;
+						exit;
+					}*/
 					if($name == $row['name'] && $pass == $row['pass'] ){
-						$_SESSION['expert'] = true;
+						$_SESSION['admini'] = true;
 						unset($_SESSION['manager']);
 						unset($_SESSION['user']);
 						unset($_SESSION['email']);
 						header("Location: admin_book.php");
 					}
+
 				else{
 						//check if it is customer
 						$name = mysqli_real_escape_string($conn, $name);
@@ -46,7 +55,7 @@
 								$_SESSION['user'] = true;	
 								$_SESSION['email'] = $name;
 								unset($_SESSION['manager']);
-								unset($_SESSION['expert']);
+								unset($_SESSION['admini']);
 								header("Location: index.php");
 							}
 

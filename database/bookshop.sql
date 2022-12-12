@@ -4,22 +4,6 @@ SET time_zone = "+00:00";
 
 -- Table `customers`
 
-CREATE TABLE `customers` (`id` int(10) NOT NULL,
-                          `firstname` varchar(40) NOT NULL,
-                          `lastname` varchar(40) NOT NULL,
-                          `email` varchar(40) NOT NULL,
-                          `password` varchar(40) NOT NULL,
-                          `address` varchar(120) NOT NULL,
-                          `city` varchar(40) NOT NULL,
-                          `zipcode` varchar(40) NOT NULL
-
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- Dumping data for table `customers`
-
-INSERT INTO `customers` (`id`, `firstname`, `lastname`, `email`, `password`, `address`, `city`, `zipcode`) VALUES
-                                                                                                               (6, 'Emma', 'Maikuri', 'emaikuri@gmail.com', '1234', 'Nairobi', 'CBD', '00400'),
-                                                                                                               (7, 'June', 'Mace', 'maikuri@yahoo.com', '1111', 'Nakuru', 'Kenya', '200');
 
 
 -- Table `books`
@@ -95,16 +79,36 @@ INSERT INTO `category` (`categoryid`, `category_name`) VALUES
 (7, 'Non-Fiction');
 
 
--- Table `expert`
+CREATE TABLE `customers` (
+  `id` int(10) NOT NULL,
+  `firstname` varchar(40) NOT NULL,
+  `lastname` varchar(40) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `password` varchar(40) NOT NULL,
+  `address` varchar(120) NOT NULL,
+  `city` varchar(40) NOT NULL,
+  `zipcode` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `expert` (
+-- data for table `customers`
+
+
+INSERT INTO `customers` (`id`, `firstname`, `lastname`, `email`, `password`, `address`, `city`, `zipcode`) VALUES
+(6, 'Emma', 'Maikuri', 'emaikuri@gmail.com', '1234', 'Nairobi', 'CBD', '00400'),
+(7, 'June', 'Tan', 'maikuri@yahoo.com', '1111', 'Nakuru', 'Kenya', '200');
+
+
+
+-- Table `admini`
+
+CREATE TABLE `admini` (
   `name` varchar(20) COLLATE latin1_general_ci NOT NULL,
   `pass` varchar(40) COLLATE latin1_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
--- Dumping data for table `expert`
-INSERT INTO `expert` (`name`, `pass`) VALUES
-('expert', 'expert');
+-- Dumping data for table `admini`
+INSERT INTO `admini` (`name`, `pass`) VALUES
+('admini', 'admini');
 
 -- Table `manager`
 

@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if((!isset($_SESSION['manager'])  && !isset($_SESSION['expert']))){
+	if((!isset($_SESSION['manager'])  && !isset($_SESSION['admini']))){
 		header("Location:index.php");
 	}
 	$title = "Edit book";

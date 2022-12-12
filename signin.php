@@ -22,16 +22,16 @@
 <?php
     $fullurl="http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     if(strpos($fullurl,"signin=empty")==true){
-        echo '<P style="color:red">You did not fill in all the fields.</P>';
+        echo '<p style="color:red">You did not fill in all the fields.</p>';
         exit();
     }
     if(strpos($fullurl,"signin=invalidusername")==true){
-        echo '<P style="color:red">Username does not exist.</P>';
+        echo '<p style="color:red">Username does not exist.</p>';
 
         exit();
     }
     if(strpos($fullurl,"signin=invalidpassword")==true){
-        echo '<P style="color:red">Password is not correct.</P>';
+        echo '<p style="color:red">Password is not correct.</p>';
         exit();
     }
 ?>

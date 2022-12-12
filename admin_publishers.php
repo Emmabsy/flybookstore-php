@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	if((!isset($_SESSION['manager'])  && !isset($_SESSION['expert']))){
+	if((!isset($_SESSION['manager'])  && !isset($_SESSION['admini']))){
 		header("Location:index.php");
 	}
 	$title = "List publisher";
@@ -29,8 +29,13 @@
 		<?php while($row = mysqli_fetch_assoc($result)){ ?>
 		<tr>
 			<td><?php echo $row['publisher_name']; ?></td>
+			<td> <a style="color: orange" href="admin_editpublishers.php?pubid= <?php
+					echo $row['publisherid']; ?>">Edit</a></td>
+
+			<td> <a style="color: red" href="admin_deletepublishers.php?pubid=<?php
+					echo $row['publisherid']; ?>">Delete</a></td>
 			<?php
-				if( isset($_SESSION['expert']) && $_SESSION['expert']==true){
+				/*if( isset($_SESSION['expert']) && $_SESSION['expert']==true){
 					echo '<td><a href="admin_editpublishers.php?pubid=';
 					echo $row['publisherid'];
 					echo'"><span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;Edit</a></td>';
@@ -39,15 +44,20 @@
 					echo $row['publisherid'];
 					echo '"><span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Delete</a></td>';
 				}
+				*/
 			?>
 
 		</tr>
 		<?php } ?>
 	</table>
+
+	<a class="btn btn-primary" href="admin_addpublisher.php"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add Publisher</a>
     <?php
-    if (isset($_SESSION['manager']) && $_SESSION['manager']==true){
+	
+    /*if (isset($_SESSION['manager']) && $_SESSION['manager']==true){
 		echo '<a class="btn btn-primary" href="admin_addpublisher.php"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add Publisher</a>';
-	}        
+	}   
+	*/     
     ?>
 <?php
 	if(isset($conn)) {mysqli_close($conn);}

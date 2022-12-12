@@ -71,7 +71,7 @@
 	</div>
 
 	<div class="form-group col-md-6">
-		<label for="inputZip">Zip</label>
+		<label for="inputZip">Postal Code</label>
         <input type="text" class="form-control" id="inputZip" name="zipcode" value="<?php echo $customer['zipcode']?>">
 	</div>
 

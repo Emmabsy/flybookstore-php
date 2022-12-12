@@ -53,7 +53,7 @@
 	   			<th>Price</th>
 	  			<th>Quantity</th>
 	   			<th>Total</th>
-                <th>Delete</th>
+            
 	   		</tr>
 	   		<?php
 		    	foreach($_SESSION['cart'] as $isbn => $qty){
